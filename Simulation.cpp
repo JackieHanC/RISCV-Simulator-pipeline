@@ -180,9 +180,9 @@ void IF()
 	IF_ID.inst=memory[PC];
 	printf("PC is 0x%05x  inst 0x%08x\n",PC<<2,IF_ID.inst);
 	//IDnextPC=PC+1;
-	// IF_ID_old.PC=PC;
+	IF_ID_old.PC=PC;
 	PC = PC + 1;
-	IF_ID.PC=PC;
+	// IF_ID.PC=PC;
 
 
 	cycle_num++;
@@ -738,7 +738,7 @@ void ID()
 	ID_EX.Ctrl_WB_RegWrite = RegWrite;
 	ID_EX.Ctrl_WB_MemtoReg = MemtoReg;
 
-	ID_EX.PC = PC;
+	ID_EX.PC = IF_ID.PC;
 
 	
 	//...
